@@ -12,8 +12,9 @@ It's a repository trying to achieve the idea in paper <a href = "https://homes.c
 
 ## Networks
 
-- Fully concolutional networks.
+- Fully concolutional networks(FCN).
 - Faster-RCNN.
 
 ## Process
 
+**1.**The FCN is modified from the repo <a href = "https://github.com/shekkizh/FCN.tensorflow">FCN.tensorflow</a>. Note: The format of lsun bedroom dataset is different from the ADEChallengeData2016 dataset which is used in the origin repository.
