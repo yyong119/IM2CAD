@@ -1,3 +1,5 @@
 logs/*
 .idea
 *.pyc
+*.npy
+*.ckpt
