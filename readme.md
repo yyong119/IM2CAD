@@ -2,19 +2,29 @@
 
 It's a repository trying to achieve the idea in paper <a href = "https://homes.cs.washington.edu/~izadinia/im2cad.html">IM2CAD</a>. The main goal of this paper is to reconstruct a scene that is similar to the given photo of a room.
 
-## Preparation
+## Datasets that are used in the paper
 
 - <a href = "http://tigress-web.princeton.edu/~fy/lsun/public/release/">LSUN</a> is needed in pixel-level labeling task to estimate the room geometry.
 
 - <a href = "http://www.image-net.org/challenges/LSVRC/2012/nonpub-downloads">imagenet2012</a> dataset is used to detect the objects in the room(pre-trained model was used in the paper).
 
-- <a href = "https://www.shapenet.org/">ShapeNet</a> 3D models are the objects will appear in the reconstructed scene.
+- <a href = "https://www.shapenet.org/">ShapeNet</a> 3D models are the objects will appear in the reconstructed scene. (an account may needed to download data)
 
-## Networks
+## Main Process to achieve the result
 
-- Fully concolutional networks(FCN).
-- Faster-RCNN.
+#### Room geometry estimation
 
-## Process
+The lsun indoor dataset can be downloaded from the above link, or you can fork the official GitHub repository <a href = "https://github.com/fyu/lsun">lsun</a> and follow the instructions there.
 
-**1.**The FCN is modified from the repo <a href = "https://github.com/shekkizh/FCN.tensorflow">FCN.tensorflow</a>. Note: The format of lsun bedroom dataset is different from the ADEChallengeData2016 dataset which is used in the origin repository.
+The FCN is modified from the repo <a href = "https://github.com/shekkizh/FCN.tensorflow">FCN.tensorflow</a>. Note: The format of lsun indoor dataset is different a bit from the ADEChallengeData2016 dataset which is used in the origin repository.
+
+To train the network, just running the following command:
+
+```shell
+python FCN.py --mode=train
+```
+
+It can also visualize the part of results by replacing the "train" with "visualize".
+
+#### Object detection
+
