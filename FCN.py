@@ -9,7 +9,7 @@ import BatchDatsetReader as dataset
 from six.moves import xrange
 
 FLAGS = tf.flags.FLAGS
-tf.flags.DEFINE_integer("batch_size", "2", "batch size for training")
+tf.flags.DEFINE_integer("batch_size", "1", "batch size for training")
 tf.flags.DEFINE_string("logs_dir", "logs/", "path to logs directory")
 tf.flags.DEFINE_string("data_dir", "Data_zoo/MIT_SceneParsing/", "path to dataset")
 tf.flags.DEFINE_float("learning_rate", "1e-4", "Learning rate for Adam Optimizer")
@@ -174,7 +174,9 @@ def main(argv=None):
         train_dataset_reader = dataset.BatchDatset(train_records, image_options)
     validation_dataset_reader = dataset.BatchDatset(valid_records, image_options)
 
-    sess = tf.Session()
+	config = tf.ConfigProto()
+	config.gpu_options.allow_growth = True
+    sess = tf.Session(config = config)
 
     print("Setting up Saver...")
     saver = tf.train.Saver()
