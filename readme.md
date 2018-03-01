@@ -2,7 +2,7 @@
 
 It's a repository trying to achieve the idea in paper <a href = "https://homes.cs.washington.edu/~izadinia/im2cad.html">IM2CAD</a>. The main goal of this paper is to reconstruct a scene that is similar to the given photo of a room.
 
-## Datasets that are used in the paper
+## Datasets used in the paper
 
 - <a href = "http://tigress-web.princeton.edu/~fy/lsun/public/release/">LSUN</a> is needed in pixel-level labeling task to estimate the room geometry.
 
@@ -28,3 +28,4 @@ It can also visualize the part of results by replacing the "train" with "visuali
 
 #### Object detection
 
+According to the paper, the Faster-RCNN is used to detect the objects occured in the indoor scene.
